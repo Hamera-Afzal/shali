@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: #ff6347;
+            font-size: 3rem;
+        }
+        .balloons {
+            position: relative;
+            height: 200px;
+        }
+        .balloon {
+            width: 60px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #ff4500;
+            position: absolute;
+            bottom: 0;
+            animation: float 6s infinite;
+        }
+        .balloon:nth-child(2) {
+            background-color: #ff1493;
+            left: 80px;
+        }
+        .balloon:nth-child(3) {
+            background-color: #00bfff;
+            left: 160px;
+        }
+        .balloon:nth-child(4) {
+            background-color: #32cd32;
+            left: 240px;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-300px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="birthdayMessage"></h1>
+        <div class="balloons">
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+        </div>
+    </div>
+    <script>
+        function displayMessage() {
+            const today = new Date();
+            const birthday = new Date(today.getFullYear(), 6, 29); // Change month (0-based) and day to match birthday
+            if (today.getMonth() === birthday.getMonth() && today.getDate() === birthday.getDate()) {
+                document.getElementById('birthdayMessage').textContent = 'Happy Birthday Shaleen';
+            } else {
+                document.getElementById('birthdayMessage').textContent = 'Have a great day!';
+            }
+        }
+        displayMessage();
+    </script>
+</body>
+</html>
